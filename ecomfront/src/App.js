@@ -22,7 +22,6 @@ function App() {
           <main className='py-3'>
               <Container>
                 <Routes>
-
                   <Route exact path='/' element={<HomePage/>}/>
                   <Route path='/product/:id' element={<ProductDetails />}/> {/* passing id as the key for finding a match*/ }
                   <Route path='/cart' element={<Cart />}/>
