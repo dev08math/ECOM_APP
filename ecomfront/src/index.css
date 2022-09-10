@@ -1,0 +1,17 @@
+main{
+  min-height: 80vh;
+}
+
+/* .head Button{
+  background-color: transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+  transition: 0.4s ease-in;
+  margin: 0.2rem;
+} */
+.rating span{
+  margin : 0.1rem
+}
