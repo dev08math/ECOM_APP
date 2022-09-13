@@ -36,6 +36,12 @@ function UserList() {
 
   return (
     <div>
+      <button 
+        className="btn btn-light my-3" 
+        type='button'
+        onClick={goBackHandler}>
+            GO BACK
+      </button>
 
       <h1>Users</h1>
       {loading ? (
@@ -56,8 +62,8 @@ function UserList() {
 
           <tbody>
             {users.map((user) => (
-              <tr key={user._id}>
-                <td>{user._id}</td>
+              <tr key={user.id}>
+                <td>{user.id}</td>
                 <td>{user.username}</td>
                 <td>{user.email}</td>
                 <td>
