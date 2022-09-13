@@ -37,11 +37,11 @@ function App() {
                   <Route path='/payment' element={<Payment />} />
                   <Route path='/placeorder' element={<PlaceOrder />} />
                   <Route path='/order/:id' element={<Order />} />
-                  <Route path='/admin/userlist' component={UserList} />
-                  <Route path='/admin/user/edit/:id' component={UserEdit} />
-                  <Route path='/admin/productlist' component={ProductList} />
-                  <Route path='/admin/product/:id/edit' component={ProductEdit} />
-                  <Route path='/admin/orderlist' component={OrderList} />
+                  <Route path='/admin/userlist' element={<UserList />} />
+                  <Route path='/admin/user/edit/:id' element={<UserEdit />} />
+                  <Route path='/admin/productlist' element={<ProductList /> } />
+                  <Route path='/admin/product/:id/edit' element={<ProductEdit />} />
+                  <Route path='/admin/orderlist' element={<OrderList />} />
                 </Routes>
               </Container>
           </main>
