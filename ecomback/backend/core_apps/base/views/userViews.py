@@ -76,24 +76,27 @@ class getUsers(APIView):
 class getUserById(APIView):
     permission_classes = [Isadmin]
     def get(self, request, id):
-        user = User.objects.get(id == id)
+        user = User.objects.get(id = id)
         serializer = UserSerializer(user)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
 class updateUser(APIView):
     permission_classes = [Isadmin]
     def patch(self, request, id):
-        user = User.objects.get(id == id)
+        user = User.objects.get(id = id)
         data = request.data
 
-        user.isAdmin = data['isAdmin']
+        user.is_superuser = data['isAdmin']
         serializer = UserSerializer(instance=user,  data=request.data, partial=True)
+        if serializer.is_valid():
+            serializer.save()
         return Response(serializer.data, status=status.HTTP_200_OK)
 
 class deleteUser(APIView):
     permission_classes = [Isadmin]
-    def get(self, request, id):
-        user = User.objects.get(id == id)
-        if user.IsAdmin : return Response({'detail' : 'Cannot delete an Admin'}, status=status.HTTP_400_BAD_REQUEST)
+    def delete(self, request, id):
+        user = User.objects.get(id = id)
+        print(user.id)
+        if user.is_superuser : return Response({'detail' : 'Cannot delete an Admin'}, status=status.HTTP_400_BAD_REQUEST)
         user.delete()
         return Response("User was deleted.", status=status.HTTP_200_OK)
