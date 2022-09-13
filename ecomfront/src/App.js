@@ -14,6 +14,11 @@ import Shipping from './pages/Shipping';
 import Payment from './pages/Payment';
 import PlaceOrder from './pages/PlaceOrder';
 import Order from './pages/Order';
+import UserList from './pages/UserList';
+import UserEdit from './pages/UserEdit';
+import ProductList from './pages/ProductList';
+import ProductEdit from './pages/ProductEdit';
+import OrderList from './pages/OrderList';
 
 function App() {
   return (
@@ -32,6 +37,11 @@ function App() {
                   <Route path='/payment' element={<Payment />} />
                   <Route path='/placeorder' element={<PlaceOrder />} />
                   <Route path='/order/:id' element={<Order />} />
+                  <Route path='/admin/userlist' component={UserList} />
+                  <Route path='/admin/user/edit/:id' component={UserEdit} />
+                  <Route path='/admin/productlist' component={ProductList} />
+                  <Route path='/admin/product/:id/edit' component={ProductEdit} />
+                  <Route path='/admin/orderlist' component={OrderList} />
                 </Routes>
               </Container>
           </main>
