@@ -34,6 +34,10 @@ function UserList() {
     }
   }, [dispatch, successDelete, userInfo]);
 
+  const goBackHandler = () => {
+    navigate('/')
+  }
+
   return (
     <div>
       <button 
@@ -43,7 +47,7 @@ function UserList() {
             GO BACK
       </button>
 
-      <h1>Users</h1>
+      <h1>USERS</h1>
       {loading ? (
         <Loader />
       ) : error ? (
@@ -80,7 +84,7 @@ function UserList() {
                       <i className="fas fa-edit"></i>
                     </Button>
                   </LinkContainer>
-
+                  {"   "}
                   <Button
                     variant="danger"
                     className="btn-sm"
