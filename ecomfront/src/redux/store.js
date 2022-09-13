@@ -12,25 +12,13 @@ const middleware = [thunk, logger]
 
 const userInitialState = localStorage.getItem('userInfo') ? JSON.parse(localStorage.getItem('userInfo') ): {}
 
-const cartItemsInitialState= localStorage.getItem('cartItems') ? JSON.parse(localStorage.getItem('cartItems')) : []
+const cartItemsInitialState= localStorage.getItem('cartItems') ? JSON.parse(localStorage.getItem('cartItems')) : {}
 
 const shippingAddressInitialState= localStorage.getItem('shippingAddress') ? JSON.parse(localStorage.getItem('shippingAddress')) : {}
 
 const itemsInCart = localStorage.getItem('length') ? JSON.parse(localStorage.getItem('length')) : 0
 
 // console.log("userState ", userInitialState)
-
-export const productListState = {
-    loading: true,
-    error: '',
-    products: [],
-}
-export const productDetailsState = {
-    loading: true,
-    error: '',
-    productInfo: [],
-}
-
 
 const initialState = {
     cart: {
