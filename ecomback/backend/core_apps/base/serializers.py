@@ -8,6 +8,7 @@ User = get_user_model()
 
 class UserSerializer(serializers.ModelSerializer):
     fullname = serializers.SerializerMethodField(read_only=True)
+    isAdmin = serializers.SerializerMethodField(read_only=True)
 
     def get_fullname(self, obj):
         # print("fullname ", obj.first_name," ", obj.last_name)
@@ -15,9 +16,12 @@ class UserSerializer(serializers.ModelSerializer):
         last_name = obj.last_name
         return f"{first_name} {last_name}"
 
+    def get_isAdmin(self, obj):
+        return  obj.is_superuser
+
     class Meta:
         model = User
-        fields = ['id', 'email', 'username', 'fullname']
+        fields = ['id', 'email', 'username', 'fullname', 'isAdmin']
 
 class CustomTokenSerializer(TokenObtainPairSerializer):
     def validate(self, attrs):
