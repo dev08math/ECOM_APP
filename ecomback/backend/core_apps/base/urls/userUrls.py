@@ -21,8 +21,8 @@ urlpatterns = [
     path("login", CustomTokenObtainPairView.as_view(), name="obtain_jwt_pair"),
 
     path("", getUsers.as_view(), name="get_all_users"),
-    path("update/<int:id>", updateUser.as_view(), name="update-user"),
-    path("delete/<int:id>", deleteUser.as_view(), name="delete-user"),
-    path("<int:id>", getUserById.as_view(), name="get-user-details"),
+    path("update/<str:id>", updateUser.as_view(), name="update-user"),
+    path("delete/<str:id>", deleteUser.as_view(), name="delete-user"),
+    path("<str:id>", getUserById.as_view(), name="get-user-details"),
     
 ]
