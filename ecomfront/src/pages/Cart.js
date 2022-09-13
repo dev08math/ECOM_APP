@@ -11,7 +11,7 @@ function Cart() {
   const navigate = useNavigate()
 
   const cartItems = useSelector(state => state.cart.cartItems)
-  
+  const cartLength = useSelector(state => state.cart.length)
 
   const checkoutHandler = () =>{
     console.log("Checkout triggered")
@@ -24,7 +24,7 @@ function Cart() {
 
   return (
     <div>
-      {cartItems ?
+      {cartLength ?
        <button 
             className="btn btn-light my-3" 
             type='button'
@@ -38,7 +38,7 @@ function Cart() {
           {" "}
           {" "}
           {
-            cartItems ? (
+            cartLength ? (
                 <ListGroup variant='flush'>
                 {
                   cartItems.map(item => (
