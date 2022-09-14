@@ -47,7 +47,12 @@ function UserList() {
             GO BACK
       </button>
 
-      <h1>USERS</h1>
+      <Row className="align-items-center">
+        <Col>
+          <h1>USERS</h1>
+        </Col>
+      </Row>
+      
       {loading ? (
         <Loader />
       ) : error ? (
