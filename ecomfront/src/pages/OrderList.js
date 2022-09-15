@@ -4,8 +4,8 @@ import { Table, Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import Loader from "../components/Loader";
 import Message from "../components/Message";
-import { listOrders } from "../../../../proshop_django/frontend/src/actions/orderActions";
 import { useNavigate } from "react-router-dom";
+import { listOrders } from "../redux/actions/orderActions";
 
 function OrderList() {
   const navigate = useNavigate();
@@ -23,7 +23,7 @@ function OrderList() {
     } else {
       navigate("/login");
     }
-  }, [dispatch, history, userInfo]);
+  }, [dispatch, userInfo]);
 
   return (
     <div>

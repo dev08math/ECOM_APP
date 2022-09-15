@@ -40,9 +40,10 @@ function ProductEdit() {
       dispatch({ type: PRODUCT_UPDATE_RESET });
       navigate("/admin/productlist");
     } else {
-      if (!productInfo || productInfo._id !== productId) {
+      if (productInfo && productInfo._id !== productId) {
+        console.log(productInfo._id," ", productId)
         dispatch(listProductDetails(productId));
-      } else {
+      } else if(productInfo){
         setName(productInfo.name);
         setPrice(productInfo.price);
         setImage(productInfo.image);
