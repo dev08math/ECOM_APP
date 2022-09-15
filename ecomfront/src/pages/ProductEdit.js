@@ -26,7 +26,7 @@ function ProductEdit() {
   const [uploading, setUploading] = useState(false);
 
   const productDetails = useSelector((state) => state.productDetails);
-  const { error, loading, product } = productDetails;
+  const { error, loading, productInfo } = productDetails;
 
   const productUpdate = useSelector((state) => state.productUpdate);
   const {
@@ -40,19 +40,19 @@ function ProductEdit() {
       dispatch({ type: PRODUCT_UPDATE_RESET });
       navigate("/admin/productlist");
     } else {
-      if (!product || product._id !== Number(productId)) {
+      if (!productInfo || productInfo._id !== productId) {
         dispatch(listProductDetails(productId));
       } else {
-        setName(product.name);
-        setPrice(product.price);
-        setImage(product.image);
-        setBrand(product.brand);
-        setCategory(product.category);
-        setCountInStock(product.countInStock);
-        setDescription(product.description);
+        setName(productInfo.name);
+        setPrice(productInfo.price);
+        setImage(productInfo.image);
+        setBrand(productInfo.brand);
+        setCategory(productInfo.category);
+        setCountInStock(productInfo.countInStock);
+        setDescription(productInfo.description);
       }
     }
-  }, [dispatch, product, productId, successUpdate]);
+  }, [dispatch, productInfo, productId, successUpdate]);
 
   const submitHandler = (e) => {
     e.preventDefault();
