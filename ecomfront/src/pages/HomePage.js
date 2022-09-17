@@ -1,27 +1,34 @@
 import React, { useEffect } from "react";
 import { Row, Col } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
+import { useLocation } from "react-router-dom";
 
 // import products  from '../products'
 import Product from "../components/Product";
 import { listProducts } from "../redux/actions/productActions";
 import Loader from "../components/Loader";
 import Message from "../components/Message";
+import ProductCarousel from "../components/ProductCarousel";
+
 
 function HomePage() {
   const dispatch = useDispatch();
+  const {search} = useLocation()
   const productList = useSelector((state) => {
     return state.productList;
   });
   const { loading, products, error } = productList;
 
   useEffect(() => {
-    dispatch(listProducts());
-  }, [dispatch]); // you may or maynot add dispatch method in the useEffect's dependency list. dispatch is stable and won't cause any re-rendering unless and until the Providing store is changed.
+    dispatch(listProducts(search));
+  }, [dispatch, search]); // you may or maynot add dispatch method in the useEffect's dependency list. dispatch is stable and won't cause any re-rendering unless and until the Providing store is changed.
    // if product state is changed then this has to be re-rendered
 
   return (
     <div>
+      {!search && <ProductCarousel/> }
+      {" "}
+      {" "}
       <h1>LATEST PRODUCTS</h1>
       {loading ? (
         <Loader></Loader>
