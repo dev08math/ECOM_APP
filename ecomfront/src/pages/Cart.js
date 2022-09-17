@@ -102,7 +102,7 @@ function Cart() {
           <Card>
               <ListGroup variant='flush'>
                   <ListGroup.Item>
-                      <h2>Subtotal ({cartItems.reduce((total, item) => Number(total) + Number(item.qty), 0)}) items</h2>
+                      <h2>Subtotal (${cartItems.reduce((total, item) => Number(total) + Number(item.qty), 0)}) items</h2>
                       ${cartItems.reduce((total, item) => Number(total) + Number(item.qty * item.price), 0).toFixed(2)}
                   </ListGroup.Item>
               </ListGroup>
