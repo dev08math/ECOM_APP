@@ -2,7 +2,7 @@ from django.contrib.auth import get_user_model
 from rest_framework import serializers
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 
-from .models import Order, OrderItems, Product, ShippingAddress
+from .models import Order, OrderItems, Product, Review, ShippingAddress
 
 User = get_user_model()
 
@@ -34,11 +34,26 @@ class CustomTokenSerializer(TokenObtainPairSerializer):
 
         return data
 
-      
+
+class ReviewSerializer(serializers.ModelSerializer):
+    uname = serializers.SerializerMethodField(read_only=True)
+    
+    def get_uname(self, obj):
+        return obj.user.username
+
+    class Meta:
+        model = Review
+        fields = ['uname', 'comment', 'rating', 'createdAt', '_id']
+    
 class ProductSerializer(serializers.ModelSerializer):
+    reviews = serializers.SerializerMethodField(read_only=True)
+
+    def get_reviews(self, obj):
+        return ReviewSerializer(Review.objects.filter(product__name = obj.name), many=True).data
+    
     class Meta:
         model = Product
-        fields = '__all__'
+        fields = ['name', '_id', 'createdAt', 'image', 'category', 'description', 'rating', 'numReviews', 'price', 'countInStock', 'reviews', 'brand']
 
 
 class OrderItemSerializer(serializers.ModelSerializer):
