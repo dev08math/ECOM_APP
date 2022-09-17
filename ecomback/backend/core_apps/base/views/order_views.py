@@ -54,7 +54,7 @@ class getMyOrders(APIView):
     permission_classes = [permissions.IsAuthenticated]
     def get(self, request):
         user = request.user
-        orders = user.order_set.all()
+        orders = Order.objects.filter(user__id=user.id)
         serializer = OrderSerializer(orders, many=True)
         return Response(serializer.data)
     
