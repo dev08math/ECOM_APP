@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 
 import { logout } from "../redux/actions/userActions";
 import { CartIcon } from "./CartIcon";
+import SearchBar from './SearchBar';
 
 function Header() {
 
@@ -75,6 +76,7 @@ function Header() {
 
                   </NavDropdown>
                   )}
+              <SearchBar />
               <Button variant="outline-info" style={{ position: "absolute", right: "50px" }}>
                 <Link
                   to={"/cart"}
