@@ -38,6 +38,7 @@ function Registration() {
         <FormContainer>
             
             <Card.Text as='h2' className='text-center mb-4'>SIGN UP</Card.Text>
+            {message && <Message variant='danger'>{message}</Message>}
             {error && <Message variant='danger'>{error}</Message>}
             {loading && <Loader />}
             <Form onSubmit={submitHandler}>

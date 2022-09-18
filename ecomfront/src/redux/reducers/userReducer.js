@@ -34,7 +34,6 @@ import {
     USER_UPDATE_RESET,
 
 } from '../constants/userConstants'
-import { userLoginState, userRegisterState } from '../store'
 
 export const userLoginReducer = (state = {} , action) => {
     switch (action.type) {

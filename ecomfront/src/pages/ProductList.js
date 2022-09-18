@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { LinkContainer } from "react-router-bootstrap";
 import { Table, Button, Row, Col } from "react-bootstrap";
@@ -15,7 +15,7 @@ function ProductList() {
 
   // have to implement pagination and search
   const productList = useSelector((state) => state.productList);
-  const { loading, error, products, pages, page } = productList;
+  const { loading, error, products } = productList;
 
   const productDelete = useSelector((state) => state.productDelete);
   const {

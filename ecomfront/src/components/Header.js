@@ -47,7 +47,7 @@ function Header() {
                   <NavDropdown.Item onClick={logoutHandler}>
                     <div className="btn-group d-flex">
                         <Button variant='outline-danger'>
-                          LOGOUT <i class="fa fa-sign-out" aria-hidden="true"></i>
+                          LOGOUT <i className="fa fa-sign-out" aria-hidden="true"></i>
                         </Button>
                     </div>
                   </NavDropdown.Item>

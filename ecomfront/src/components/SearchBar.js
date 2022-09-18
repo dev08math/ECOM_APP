@@ -16,7 +16,7 @@ function SearchBar() {
     }
   };
   return (
-    <Form onSubmit={submitHandler} inline>
+    <Form onSubmit={submitHandler}>
         <Row>
             <Col xs="auto">
                 <Form.Control
@@ -28,7 +28,7 @@ function SearchBar() {
             </Col>
             <Col xs="auto">
                 <Button type="submit" variant="success" className="mx-5">
-                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <i className="fa-solid fa-magnifying-glass"></i>
                 </Button>
             </Col>
         </Row>

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { Form, Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import Loader from "../components/Loader";
@@ -23,7 +22,6 @@ function ProductEdit() {
   const [category, setCategory] = useState("");
   const [countInStock, setCountInStock] = useState(0);
   const [description, setDescription] = useState("");
-  const [uploading, setUploading] = useState(false);
 
   const productDetails = useSelector((state) => state.productDetails);
   const { error, loading, productInfo } = productDetails;
@@ -115,25 +113,7 @@ function ProductEdit() {
                 onChange={(e) => setPrice(e.target.value)}
               ></Form.Control>
             </Form.Group>
-
-            {/* <Form.Group controlId="image">
-              <Form.Label>Image</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Enter image"
-                value={image}
-                onChange={(e) => setImage(e.target.value)}
-              ></Form.Control>
-
-              <Form.File
-                id="image-file"
-                label="Choose File"
-                custom
-                onChange={uploadFileHandler}
-              ></Form.File>
-              {uploading && <Loader />}
-            </Form.Group> */}
-
+            
             <Form.Group controlId="brand">
               <Form.Label>Brand</Form.Label>
               <Form.Control

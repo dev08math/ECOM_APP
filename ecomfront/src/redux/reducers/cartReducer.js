@@ -36,7 +36,7 @@ export const cartReducer = (state = { cartItems: [], shippingAddress: {}, length
                 cartItems: state.cartItems.filter(x => x._id !== action.payload._id),
                 length: state.length - 1
             }
-            break; 
+          
             
             case CART_SAVE_SHIPPING_ADDRESS:{
                 return {
@@ -44,7 +44,7 @@ export const cartReducer = (state = { cartItems: [], shippingAddress: {}, length
                     shippingAddress: action.payload
                 }
             }
-            break;
+         
 
             case CART_SAVE_PAYMENT_METHOD:{
                 console.log("Cart state is ", state)
@@ -53,17 +53,17 @@ export const cartReducer = (state = { cartItems: [], shippingAddress: {}, length
                     paymentMethod: action.payload
                 }
             }
-            break;
+        
 
             case CART_CLEAR_ITEMS:
                 return {
                     cartItems: [],
                     length: 0,
                 }
-            break;
+           
 
             default:
                 return state;
-            break;
+            
         }
     }
