@@ -11,7 +11,7 @@ import SearchBar from './SearchBar';
 function Header() {
 
   const userLogin = useSelector((state) => state.userLogin)
-  console.log("userlogin", userLogin)
+  // console.log("userlogin", userLogin)
   const {userInfo} = userLogin
   const dispatch = useDispatch();
 

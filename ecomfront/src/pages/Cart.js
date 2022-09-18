@@ -14,7 +14,7 @@ function Cart() {
   const cartLength = useSelector(state => state.cart.length)
 
   const checkoutHandler = () =>{
-    console.log("Checkout triggered")
+    // console.log("Checkout triggered")
     navigate('/shipping')
   }
 

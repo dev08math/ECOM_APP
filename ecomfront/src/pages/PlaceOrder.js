@@ -27,7 +27,7 @@ function PlaceOrder() {
 
     useEffect( () =>{
         if (success) {
-            console.log("Order id is ", order._id)
+            // console.log("Order id is ", order._id)
             navigate(`/order/${order._id}`)
             dispatch({ type: ORDER_CREATE_RESET })
         }

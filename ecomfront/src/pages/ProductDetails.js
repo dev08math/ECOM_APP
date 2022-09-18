@@ -65,7 +65,7 @@ function ProductDetails() {
   };
 
   useEffect(() => {
-    console.log("cart value", cartItems);
+    // console.log("cart value", cartItems);
     if (cartItems) {
       let found = false;
       let index = -1;
