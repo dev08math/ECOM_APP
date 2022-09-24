@@ -1,5 +1,5 @@
 # ECOM_APP
-This demo ECOM App utlizes ....
+This ECOM APP is based on React.js and Django REST Framework utilizing PostgreSQL as relational database management system. It essentially encompases some basic functions of any ecommerce website.
 
 # Features
 1. Admin Login
